@@ -19,7 +19,7 @@ autoincr() {
 }
 
 # Create new client
-read -e -p "Peer ip: " -i "10.66.66.2/24" PEER_IP
+read -e -p "Peer ip: " -i "10.66.66.2" PEER_IP
 # read -e -p "Allowed ips: " -i "10.66.66.0/24" ALLOWED_IPS
 
 CONFIG_NAME="$(autoincr "./client.conf")"
@@ -33,7 +33,7 @@ MY_IP=$(hostname -I | awk '{print $1}')
 CLIENT_CONFIG="
 [Interface]
 PrivateKey = ${PRIVATE_KEY}
-Address = ${PEER_IP}
+Address = ${PEER_IP}/24
 DNS = 8.8.8.8,8.8.4.4
 [Peer]
 PublicKey = ${SERVER_PUBLIC_KEY}
