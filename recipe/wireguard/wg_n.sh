@@ -28,7 +28,7 @@ PRIVATE_KEY="$(wg genkey)"
 PUBLIC_KEY="$(echo ${PRIVATE_KEY} | wg pubkey)"
 SERVER_PUBLIC_KEY="$(cat /etc/wireguard/public.key)"
 
-MY_IP=$(getent hosts $(hostname) | awk '{print $1}')
+MY_IP=$(hostname -I | awk '{print $1}')
 
 CLIENT_CONFIG="
 [Interface]
