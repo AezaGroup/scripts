@@ -20,7 +20,7 @@ autoincr() {
 
 # Create new client
 read -e -p "Peer ip: " -i "10.66.66.2/24" PEER_IP
-read -e -p "Allowed ips: " -i "10.66.66.0/24" ALLOWED_IPS
+# read -e -p "Allowed ips: " -i "10.66.66.0/24" ALLOWED_IPS
 
 CONFIG_NAME="$(autoincr "./client.conf")"
 
@@ -38,7 +38,7 @@ DNS = 8.8.8.8,8.8.4.4
 [Peer]
 PublicKey = ${SERVER_PUBLIC_KEY}
 Endpoint = ${MY_IP}:63665
-AllowedIPs = ${ALLOWED_IPS}
+AllowedIPs = 0.0.0.0/0
 "
 
 echo "${CLIENT_CONFIG}" >> ${CONFIG_NAME}
@@ -46,7 +46,7 @@ echo "${CLIENT_CONFIG}" >> ${CONFIG_NAME}
 SERVER_CONFIG="
 [Peer]
 PublicKey = ${PUBLIC_KEY}
-AllowedIPs = ${ALLOWED_IPS}
+AllowedIPs = 10.66.66.2/32
 "
 
 cp /etc/wireguard/wg0.conf /etc/wireguard/wg0.conf.bak
