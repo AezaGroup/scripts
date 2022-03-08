@@ -46,7 +46,7 @@ echo "${CLIENT_CONFIG}" >> ${CONFIG_NAME}
 SERVER_CONFIG="
 [Peer]
 PublicKey = ${PUBLIC_KEY}
-AllowedIPs = 10.66.66.2/32
+AllowedIPs = ${PEER_IP}/32
 "
 
 cp /etc/wireguard/wg0.conf /etc/wireguard/wg0.conf.bak
