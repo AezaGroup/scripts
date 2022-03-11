@@ -33,7 +33,7 @@ MY_IP=$(hostname -I | awk '{print $1}')
 CLIENT_CONFIG="
 [Interface]
 PrivateKey = ${PRIVATE_KEY}
-Address = ${PEER_IP}/24
+Address = ${PEER_IP}/32
 DNS = 8.8.8.8,8.8.4.4
 [Peer]
 PublicKey = ${SERVER_PUBLIC_KEY}
