@@ -37,7 +37,7 @@ Address = ${PEER_IP}/32
 DNS = 8.8.8.8,8.8.4.4
 [Peer]
 PublicKey = ${SERVER_PUBLIC_KEY}
-Endpoint = ${MY_IP}:63665
+Endpoint = ${MY_IP}:51820
 AllowedIPs = 0.0.0.0/0
 "
 
