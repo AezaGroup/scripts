@@ -52,7 +52,7 @@ AllowedIPs = ${PEER_IP}/32
 cp /etc/wireguard/wg0.conf /etc/wireguard/wg0.conf.bak
 echo "${SERVER_CONFIG}" >> /etc/wireguard/wg0.conf
 
-systemctl restart wg-quick@wg0
+wg syncconf wg0 <(wg-quick strip wg0)
 
 echo "$(qrencode -t ansiutf8 < ${CONFIG_NAME})"
 echo "The client configuration is saved at ${CONFIG_NAME}"
